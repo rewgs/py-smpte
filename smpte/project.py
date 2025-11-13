@@ -11,10 +11,19 @@ class Project:
         self.framerate: Framerate = framerate
         self.cues: list[Cue]
 
-    def register_cue(self, cue: Cue):
+    def _register_cue(self, cue: Cue):
         if cue not in self.cues:
             self.cues.append(cue)
             cue.framerate = self.framerate
 
-    def get_time_between(a: Cue, b: Cue) -> Timecode:
+    def new_derived_cue(self, cue: Cue):
+        """ Creates a new derived cue from the given cue. """
+
+    def get_interval(a: Cue, b: Cue) -> Timecode:
         """ Returns the time between cues a and b as a Timecode object. """
+
+    def renumber_cues(self):
+        """ Clears and re-increments cue numbers. """
+
+    def split_cue(self):
+        """ Splits a given cue into two cues. """
